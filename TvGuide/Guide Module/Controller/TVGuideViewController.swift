@@ -51,19 +51,15 @@ extension TVGuideViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "Cell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        
+        guard let channelCell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.identifier, for: indexPath) as? ChannelTableViewCell else {
+            
+            return UITableViewCell()
         }
         let channel = channels[indexPath.row]
-        cell?.textLabel?.text = channel.name
-        cell?.detailTextLabel?.text = channel.number
-        cell?.backgroundColor = .darkGray
-        cell?.textLabel?.textColor = .white
-        cell?.detailTextLabel?.textColor = .white
+        channelCell.fillChannelData(channel)
         
-        return cell!
+        return channelCell
     }
 }
 
@@ -82,18 +78,19 @@ extension TVGuideViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GuideCollectionViewCell else { return UICollectionViewCell() }
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        
-        guard let channel = channels?[indexPath.section], let movies = channel.movies else { return cell }
+        guard let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifer, for: indexPath) as? MovieCollectionViewCell else {
+            
+            return UICollectionViewCell()
+        }
+        guard let channel = channels?[indexPath.section], let movies = channel.movies else {
+            
+            return movieCell
+        }
         
         let movie = movies[indexPath.row]
-        cell.nameLabel.text = "\(channel.name!) \(movie.name!)"
-        cell.timeLabel.text = movie.timeString
+        movieCell.fillMoviewDate(movie)
         
-        return cell
+        return movieCell
     }
 }
 

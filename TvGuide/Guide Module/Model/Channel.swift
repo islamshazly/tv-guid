@@ -35,7 +35,7 @@ extension Channel {
         for i in 1...15 {
             let ch:Channel = Channel()
             ch.number = "\(i)"
-            ch.name = "Channel \(i)"
+            ch.name = "CH \(i)"
             ch.movies = movies(from: date, to: endDate)
             channels.append(ch)
         }
