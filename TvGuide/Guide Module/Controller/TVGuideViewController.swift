@@ -83,15 +83,15 @@ extension TVGuideViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GridCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GuideCollectionViewCell else { return UICollectionViewCell() }
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor
         
         guard let channel = channels?[indexPath.section], let movies = channel.movies else { return cell }
         
         let movie = movies[indexPath.row]
-        cell.name.text = "\(channel.name!) \(movie.name!)"
-        cell.time.text = movie.timeString
+        cell.nameLabel.text = "\(channel.name!) \(movie.name!)"
+        cell.timeLabel.text = movie.timeString
         
         return cell
     }

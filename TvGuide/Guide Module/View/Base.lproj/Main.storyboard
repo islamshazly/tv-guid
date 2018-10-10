@@ -23,7 +23,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="W83-zS-Tkn" customClass="GridLayout" customModule="TvGuide" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="mDL-ss-qUO" customClass="GridCollectionViewCell" customModule="TvGuide" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="mDL-ss-qUO" customClass="GuideCollectionViewCell" customModule="TvGuide" customModuleProvider="target">
                                         <rect key="frame" x="64" y="0.0" width="157" height="87"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -55,8 +55,8 @@
                                         </constraints>
                                         <size key="customSize" width="157" height="87"/>
                                         <connections>
-                                            <outlet property="name" destination="rJr-rh-tIs" id="u6p-b3-7Hv"/>
-                                            <outlet property="time" destination="H6P-Ev-FZf" id="IO8-Hd-huL"/>
+                                            <outlet property="nameLabel" destination="rJr-rh-tIs" id="ay3-Gf-LS6"/>
+                                            <outlet property="timeLabel" destination="H6P-Ev-FZf" id="fRP-xx-IGI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
