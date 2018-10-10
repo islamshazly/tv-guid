@@ -48,7 +48,7 @@ extension Channel {
             moview.name = "Movie \(counter)"
             let random = Int(arc4random_uniform(4)+1)
             moview.startTime = movieStartTime
-            let movieEndTime = movieStartTime.addingTimeInterval(Double(random) * Constants.houreTimeInterval)
+            let movieEndTime = movieStartTime.addingTimeInterval(Double(random) * Constants.hourTimeInterval)
             moview.endTime = movieEndTime
             movieStartTime = movieEndTime
             movies.append(moview)

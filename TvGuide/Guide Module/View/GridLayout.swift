@@ -99,7 +99,7 @@ final class GridLayout: UICollectionViewLayout {
         guard let channels = channels else { return CGSize.zero }
         
         let intervals = endTime.timeIntervalSince(startTime)
-        let numberOfHours = CGFloat(intervals / Constants.houreTimeInterval)
+        let numberOfHours = CGFloat(intervals / Constants.hourTimeInterval)
         let width = numberOfHours * titleWidth
         let height = CGFloat(channels.count) * titleHeight
         return CGSize(width: width, height: height)
@@ -118,7 +118,7 @@ final class GridLayout: UICollectionViewLayout {
     // MARK: - Helping Methods
     
     private func tileSize(for movie : Movie) -> CGSize {
-        let duartionFactor = movie.duration / Constants.houreTimeInterval
+        let duartionFactor = movie.duration / Constants.hourTimeInterval
         let width: CGFloat = CGFloat(duartionFactor * Constants.titleWidth)
         return CGSize(width: width, height: titleHeight)
     }

@@ -108,10 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				9B5450A4216E266F003D9194 /* Application */,
+				9B892A2D216E9A3800F1642D /* Common */,
 				9B5450A3216E2664003D9194 /* Guide Module */,
-				9B54507C216E220F003D9194 /* Assets.xcassets */,
-				9B54507E216E220F003D9194 /* LaunchScreen.storyboard */,
-				9B545081216E220F003D9194 /* Info.plist */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				9B545075216E220D003D9194 /* AppDelegate.swift */,
-				9B5450AC216E2E63003D9194 /* Constants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -178,6 +175,49 @@
 				9B545077216E220D003D9194 /* TVGuideViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9B892A2D216E9A3800F1642D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9B892A31216E9A8500F1642D /* Constants */,
+				9B892A30216E9A6A00F1642D /* LaunchScreen */,
+				9B892A2F216E9A5B00F1642D /* plists */,
+				9B892A2E216E9A4600F1642D /* Assets */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9B892A2E216E9A4600F1642D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9B54507C216E220F003D9194 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		9B892A2F216E9A5B00F1642D /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				9B545081216E220F003D9194 /* Info.plist */,
+			);
+			path = plists;
+			sourceTree = "<group>";
+		};
+		9B892A30216E9A6A00F1642D /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9B54507E216E220F003D9194 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		9B892A31216E9A8500F1642D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9B5450AC216E2E63003D9194 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.360vuz.TvGuide.TvGuide;
+				PRODUCT_BUNDLE_IDENTIFIER = com.360vuz.TvGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -518,7 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.360vuz.TvGuide.TvGuide;
+				PRODUCT_BUNDLE_IDENTIFIER = com.360vuz.TvGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
