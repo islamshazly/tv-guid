@@ -53,9 +53,7 @@ extension TVGuideViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let channelCell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.identifier, for: indexPath) as? ChannelTableViewCell else {
-            
             return UITableViewCell()
         }
         let channel = channels[indexPath.row]
@@ -79,11 +77,9 @@ extension TVGuideViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifer, for: indexPath) as? MovieCollectionViewCell else {
-            
             return UICollectionViewCell()
         }
         guard let movies = channels[indexPath.section].movies else {
-            
             return movieCell
         }
         let movie = movies[indexPath.row]
@@ -97,7 +93,7 @@ extension TVGuideViewController: UICollectionViewDataSource {
 extension TVGuideViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView == tableView) {
+        if scrollView == tableView {
             collectionView.contentOffset = CGPoint(x: collectionView.contentOffset.x, y: tableView.contentOffset.y)
         }
         else {

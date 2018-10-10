@@ -113,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				9B5450A4216E266F003D9194 /* Application */,
-				9B892A2D216E9A3800F1642D /* Common */,
 				9B5450A3216E2664003D9194 /* Guide Module */,
+				9B892A2D216E9A3800F1642D /* Common */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -169,8 +169,7 @@
 			children = (
 				9B545079216E220D003D9194 /* Main.storyboard */,
 				9B892A3D216EAF7C00F1642D /* GridCollectionViewLayout.swift */,
-				9B892A3B216EA2DD00F1642D /* MovieCollectionViewCell.swift */,
-				9B892A39216EA24300F1642D /* ChannelTableViewCell.swift */,
+				9B892A3F216EB5CD00F1642D /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +223,15 @@
 				9B5450AC216E2E63003D9194 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		9B892A3F216EB5CD00F1642D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B892A39216EA24300F1642D /* ChannelTableViewCell.swift */,
+				9B892A3B216EA2DD00F1642D /* MovieCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

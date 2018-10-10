@@ -39,6 +39,7 @@ final class GridCollectionViewLayout: UICollectionViewLayout {
         setup()
     }
     
+    // MARK: -  Setup
     //Setup initial values for the properties
     private func setup() {
         //only shows the movies for the next 7 days

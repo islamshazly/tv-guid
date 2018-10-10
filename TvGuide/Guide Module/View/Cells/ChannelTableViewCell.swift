@@ -17,14 +17,18 @@ final class ChannelTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = .darkGray
-        self.textLabel?.textColor = .white
-        self.detailTextLabel?.textColor = .white
+        updateViewUI()
     }
     
     // MARK: - Helping Mehtods
     func fillChannelData(_ channel: Channel) {
         self.textLabel?.text = channel.name
         self.detailTextLabel?.text = channel.number
+    }
+    
+    private func updateViewUI() {
+    self.backgroundColor = .darkGray
+    self.textLabel?.textColor = .white
+    self.detailTextLabel?.textColor = .white
     }
 }

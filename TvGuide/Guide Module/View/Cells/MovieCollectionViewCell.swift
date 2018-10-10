@@ -18,15 +18,19 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.lightGray.cgColor
+     
+        updateViewUI()
     }
     
     // MARK: - Helping Mehtods
     func fillMoviewDate(_ movie: Movie) {
         nameLabel.text = movie.name
         timeLabel.text = movie.timeString
+    }
+    
+    private func updateViewUI() {
+    self.layer.borderWidth = 1
+    self.layer.borderColor = UIColor.lightGray.cgColor
     }
     
 }
