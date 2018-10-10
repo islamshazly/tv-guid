@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9B545076216E220D003D9194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B545075216E220D003D9194 /* AppDelegate.swift */; };
-		9B545078216E220D003D9194 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B545077216E220D003D9194 /* ViewController.swift */; };
+		9B545078216E220D003D9194 /* TVGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B545077216E220D003D9194 /* TVGuideViewController.swift */; };
 		9B54507B216E220D003D9194 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B545079216E220D003D9194 /* Main.storyboard */; };
 		9B54507D216E220F003D9194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B54507C216E220F003D9194 /* Assets.xcassets */; };
 		9B545080216E220F003D9194 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B54507E216E220F003D9194 /* LaunchScreen.storyboard */; };
 		9B54508B216E220F003D9194 /* TvGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B54508A216E220F003D9194 /* TvGuideTests.swift */; };
 		9B545096216E220F003D9194 /* TvGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B545095216E220F003D9194 /* TvGuideUITests.swift */; };
+		9B5450A9216E28A9003D9194 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450A8216E28A9003D9194 /* Movie.swift */; };
+		9B5450AB216E2A75003D9194 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450AA216E2A75003D9194 /* Channel.swift */; };
+		9B5450AD216E2E63003D9194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450AC216E2E63003D9194 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		9B545072216E220D003D9194 /* TvGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B545075216E220D003D9194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B545077216E220D003D9194 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B545077216E220D003D9194 /* TVGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideViewController.swift; sourceTree = "<group>"; };
 		9B54507A216E220D003D9194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B54507C216E220F003D9194 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B54507F216E220F003D9194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		9B545091216E220F003D9194 /* TvGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvGuideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B545095216E220F003D9194 /* TvGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvGuideUITests.swift; sourceTree = "<group>"; };
 		9B545097216E220F003D9194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B5450A8216E28A9003D9194 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		9B5450AA216E2A75003D9194 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		9B5450AC216E2E63003D9194 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +103,8 @@
 		9B545074216E220D003D9194 /* TvGuide */ = {
 			isa = PBXGroup;
 			children = (
-				9B545075216E220D003D9194 /* AppDelegate.swift */,
-				9B545077216E220D003D9194 /* ViewController.swift */,
-				9B545079216E220D003D9194 /* Main.storyboard */,
+				9B5450A4216E266F003D9194 /* Application */,
+				9B5450A3216E2664003D9194 /* Guide Module */,
 				9B54507C216E220F003D9194 /* Assets.xcassets */,
 				9B54507E216E220F003D9194 /* LaunchScreen.storyboard */,
 				9B545081216E220F003D9194 /* Info.plist */,
@@ -123,6 +128,50 @@
 				9B545097216E220F003D9194 /* Info.plist */,
 			);
 			path = TvGuideUITests;
+			sourceTree = "<group>";
+		};
+		9B5450A3216E2664003D9194 /* Guide Module */ = {
+			isa = PBXGroup;
+			children = (
+				9B5450A5216E26CD003D9194 /* Model */,
+				9B5450A6216E26D9003D9194 /* View */,
+				9B5450A7216E26DE003D9194 /* Controller */,
+			);
+			path = "Guide Module";
+			sourceTree = "<group>";
+		};
+		9B5450A4216E266F003D9194 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9B545075216E220D003D9194 /* AppDelegate.swift */,
+				9B5450AC216E2E63003D9194 /* Constants.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9B5450A5216E26CD003D9194 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B5450A8216E28A9003D9194 /* Movie.swift */,
+				9B5450AA216E2A75003D9194 /* Channel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B5450A6216E26D9003D9194 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B545079216E220D003D9194 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B5450A7216E26DE003D9194 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B545077216E220D003D9194 /* TVGuideViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B545078216E220D003D9194 /* ViewController.swift in Sources */,
+				9B5450AD216E2E63003D9194 /* Constants.swift in Sources */,
+				9B545078216E220D003D9194 /* TVGuideViewController.swift in Sources */,
+				9B5450AB216E2A75003D9194 /* Channel.swift in Sources */,
 				9B545076216E220D003D9194 /* AppDelegate.swift in Sources */,
+				9B5450A9216E28A9003D9194 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +484,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TvGuide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,6 +493,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.360vuz.TvGuide.TvGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,7 +503,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TvGuide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,6 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.360vuz.TvGuide.TvGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
