@@ -24,12 +24,19 @@ final class TVGuideViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setupCollectionViewLayout()
         setupTableViewUI()
     }
     
+    // MARK: - Helping Methods
     func setupTableViewUI() {
         tableView.layer.borderColor = UIColor.black.cgColor
         tableView.layer.borderWidth = 1
+    }
+    
+    func setupCollectionViewLayout() {
+        let gridLayout = GridLayout(channels)
+        collectionView.collectionViewLayout = gridLayout
     }
 
 }

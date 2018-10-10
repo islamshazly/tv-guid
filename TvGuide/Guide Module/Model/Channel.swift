@@ -22,6 +22,7 @@ extension Channel {
     //Creates and return an array of mocked channels
     class func channels()->[Channel] {
         var channels: [Channel] = []
+        //only shows the movies for the next 7 days
         let cal = Calendar.current
         var date = Date()
         date = cal.startOfDay(for: date)

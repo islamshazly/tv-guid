@@ -19,11 +19,16 @@ final class GridLayout: UICollectionViewLayout {
     private var framesInfo: NSMutableDictionary?
     let titleWidth: CGFloat = 200
     let titleHeight: CGFloat = 70
-    let cellIdentifier = "GridCell"
     
     private var channels: [Channel]?
     
     // MARK: - Initializers
+     init(_ channels: [Channel]) {
+        super.init()
+        self.channels = channels
+        setup()
+    }
+    
     override init() {
         super.init()
         setup()
@@ -34,7 +39,9 @@ final class GridLayout: UICollectionViewLayout {
         setup()
     }
     
+    //Setup initial values for the properties
     private func setup() {
+        //only shows the movies for the next 7 days
         let cal = Calendar.current
         var date = Date()
         date = cal.startOfDay(for: date)
@@ -43,11 +50,9 @@ final class GridLayout: UICollectionViewLayout {
         endTime = startTime.addingTimeInterval(Constants.weekTimeInterval)
         layoutInfo = NSMutableDictionary()
         framesInfo = NSMutableDictionary()
-        channels = Channel.channels()
     }
     
     // MARK: -  Life Cycle
-    
     override func prepare() {
         calculateFramesForAllMovies()
         let newLayoutInfo = NSMutableDictionary()
@@ -66,7 +71,7 @@ final class GridLayout: UICollectionViewLayout {
             }
         }
         
-        newLayoutInfo[cellIdentifier] = cellLayoutInfo
+        newLayoutInfo[MovieCollectionViewCell.identifer] = cellLayoutInfo
         layoutInfo = newLayoutInfo
         
     }
@@ -115,12 +120,15 @@ final class GridLayout: UICollectionViewLayout {
     
     // MARK: - Helping Methods
     
+    //Calculate the width for the cell based on the movie duration
     private func tileSize(for movie : Movie) -> CGSize {
         let duartionFactor = movie.duration / Constants.hourTimeInterval
-        let width: CGFloat = CGFloat(duartionFactor * Constants.titleWidth)
+        let width = CGFloat(duartionFactor * Constants.titleWidth)
         return CGSize(width: width, height: titleHeight)
     }
     
+    //Calculate the all frame for all movies and
+    //saving the results in "framesInfo" to use it later
     private func calculateFramesForAllMovies() {
         guard let channels = channels else { return }
         for i in 0..<channels.count {
@@ -143,8 +151,13 @@ final class GridLayout: UICollectionViewLayout {
         }
     }
     
+    //Retrieve the frame for the corresponding indexPath from "framesInfo"
     private func frameForItemAtIndexPath(_ indexPath : IndexPath) -> CGRect {
-        guard let infoDic = framesInfo, let rectString = infoDic[indexPath] as? String else { return CGRect.zero }
+        guard let infoDic = framesInfo, let rectString = infoDic[indexPath] as? String else {
+            
+            return CGRect.zero
+        }
+        
         return NSCoder.cgRect(for: rectString)
     }
 
