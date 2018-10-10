@@ -19,6 +19,7 @@
 		9B5450AD216E2E63003D9194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450AC216E2E63003D9194 /* Constants.swift */; };
 		9B892A2A216E7B0F00F1642D /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B892A29216E7B0F00F1642D /* GridCollectionViewCell.swift */; };
 		9B892A2C216E7C5100F1642D /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B892A2B216E7C5100F1642D /* GridLayout.swift */; };
+		9B892A33216E9CC300F1642D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B892A32216E9CC300F1642D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9B5450AC216E2E63003D9194 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B892A29216E7B0F00F1642D /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
 		9B892A2B216E7C5100F1642D /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		9B892A32216E9CC300F1642D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		9B545069216E220D003D9194 = {
 			isa = PBXGroup;
 			children = (
+				9B892A32216E9CC300F1642D /* Default-568h@2x.png */,
 				9B545074216E220D003D9194 /* TvGuide */,
 				9B545089216E220F003D9194 /* TvGuideTests */,
 				9B545094216E220F003D9194 /* TvGuideUITests */,
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B545080216E220F003D9194 /* LaunchScreen.storyboard in Resources */,
+				9B892A33216E9CC300F1642D /* Default-568h@2x.png in Resources */,
 				9B54507D216E220F003D9194 /* Assets.xcassets in Resources */,
 				9B54507B216E220D003D9194 /* Main.storyboard in Resources */,
 			);
@@ -534,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TvGuide/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TvGuide/Common/plists/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,7 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TvGuide/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TvGuide/Common/plists/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

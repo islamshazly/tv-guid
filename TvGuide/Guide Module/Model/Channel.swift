@@ -10,13 +10,18 @@ import UIKit
 
 final class Channel: NSObject {
     
+    // MARK: - Properties
+    
     var number: String?
     var name: String?
     var movies: [Movie]?
 }
 
+//MARK: - Helping Methods
+
 extension Channel {
     
+    //Creates and return an array of mocked channels
     class func channels()->[Channel] {
         var channels: [Channel] = []
         let cal = Calendar.current
@@ -30,8 +35,7 @@ extension Channel {
         for i in 1...15 {
             let ch:Channel = Channel()
             ch.number = "\(i)"
-            ch.name = "CH \(i)"
-            ch.movies = []
+            ch.name = "Channel \(i)"
             ch.movies = movies(from: date, to: endDate)
             channels.append(ch)
         }
@@ -39,6 +43,7 @@ extension Channel {
         return channels
     }
     
+    //Creates and return an array of mocked movies
     private class func movies(from startDate: Date, to endDate: Date) -> [Movie] {
         var movieStartTime = startDate
         var counter = 1
