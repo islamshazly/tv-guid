@@ -9,20 +9,20 @@
 import UIKit
 
 final class GridLayout: UICollectionViewLayout {
-
+    
     // MARK: - Properties
     
-    let cellIdentifier = "GridCell"
-    var startTime: Date!
-    var endTime: Date!
-    var xPos: CGFloat = 0
-    var yPos: CGFloat = 0
-    var layoutInfo: NSMutableDictionary?
-    var framesInfo: NSMutableDictionary?
+    private var startTime: Date!
+    private var endTime: Date!
+    private var xPos: CGFloat = 0
+    private var yPos: CGFloat = 0
+    private var layoutInfo: NSMutableDictionary?
+    private var framesInfo: NSMutableDictionary?
     let titleWidth: CGFloat = 200
     let titleHeight: CGFloat = 70
+    let cellIdentifier = "GridCell"
     
-    var channels: [Channel]?
+    private var channels: [Channel]?
     
     // MARK: - Initializers
     
@@ -36,7 +36,7 @@ final class GridLayout: UICollectionViewLayout {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         let cal = Calendar.current
         var date = Date()
         date = cal.startOfDay(for: date)
@@ -95,13 +95,35 @@ final class GridLayout: UICollectionViewLayout {
         return attributes
     }
     
-    func tileSize(for movie : Movie) -> CGSize {
+    override var collectionViewContentSize : CGSize {
+        guard let channels = channels else { return CGSize.zero }
+        
+        let intervals = endTime.timeIntervalSince(startTime)
+        let numberOfHours = CGFloat(intervals / Constants.houreTimeInterval)
+        let width = numberOfHours * titleWidth
+        let height = CGFloat(channels.count) * titleHeight
+        return CGSize(width: width, height: height)
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return !collectionView!.bounds.size.equalTo(newBounds.size)
+    }
+    
+    override func invalidateLayout() {
+        xPos = 0
+        yPos = 0
+        super.invalidateLayout()
+    }
+    
+    // MARK: - Helping Methods
+    
+    private func tileSize(for movie : Movie) -> CGSize {
         let duartionFactor = movie.duration / Constants.houreTimeInterval
         let width: CGFloat = CGFloat(duartionFactor * Constants.titleWidth)
         return CGSize(width: width, height: titleHeight)
     }
     
-    func calculateFramesForAllMovies() {
+    private func calculateFramesForAllMovies() {
         guard let channels = channels else { return }
         for i in 0..<channels.count {
             xPos = 0
@@ -123,28 +145,9 @@ final class GridLayout: UICollectionViewLayout {
         }
     }
     
-    func frameForItemAtIndexPath(_ indexPath : IndexPath) -> CGRect {
+    private func frameForItemAtIndexPath(_ indexPath : IndexPath) -> CGRect {
         guard let infoDic = framesInfo, let rectString = infoDic[indexPath] as? String else { return CGRect.zero }
         return NSCoder.cgRect(for: rectString)
     }
-    
-    override var collectionViewContentSize : CGSize {
-        guard let channels = channels else { return CGSize.zero }
-        
-        let intervals = endTime.timeIntervalSince(startTime)
-        let numberOfHours = CGFloat(intervals / Constants.houreTimeInterval)
-        let width = numberOfHours * titleWidth
-        let height = CGFloat(channels.count) * titleHeight
-        return CGSize(width: width, height: height)
-    }
-    
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return !collectionView!.bounds.size.equalTo(newBounds.size)
-    }
-    
-    override func invalidateLayout() {
-        xPos = 0
-        yPos = 0
-        super.invalidateLayout()
-    }
+
 }
