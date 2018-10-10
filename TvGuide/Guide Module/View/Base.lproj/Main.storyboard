@@ -91,22 +91,22 @@
                                     <constraint firstAttribute="width" constant="90" id="Yo6-UX-YIG"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelTableViewCell" textLabel="bWu-Kz-OVZ" detailTextLabel="8dz-hp-hea" style="IBUITableViewCellStyleSubtitle" id="amn-UH-tiT" customClass="ChannelTableViewCell" customModule="TvGuide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="90" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelTableViewCell" textLabel="bWu-Kz-OVZ" detailTextLabel="8dz-hp-hea" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="amn-UH-tiT" customClass="ChannelTableViewCell" customModule="TvGuide" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="90" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="amn-UH-tiT" id="qqO-eT-pRx">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bWu-Kz-OVZ">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="15" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8dz-hp-hea">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="15" y="38.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>

@@ -11,13 +11,11 @@ import Foundation
 final class Movie: NSObject {
     
     // MARK: - Properties
-    
     var name: String?
     var startTime: Date?
     var endTime: Date?
     
     //MARK: - Computed Properties
-
     var timeString: String {
         guard let startTime = startTime,
             let endTime = endTime else {

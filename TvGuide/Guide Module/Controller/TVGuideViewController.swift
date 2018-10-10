@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TVGuideViewController.swift
 //  TvGuide
 //
 //  Created by Islam Elshazly on 10/10/18.
@@ -11,22 +11,23 @@ import UIKit
 final class TVGuideViewController: UIViewController {
     
     // MARK: - Properties
-    
-    var channels: [Channel]!
+    var channels: [Channel] = Channel.channels()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.channels = Channel.channels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setupTableViewUI()
+    }
+    
+    func setupTableViewUI() {
         tableView.layer.borderColor = UIColor.black.cgColor
         tableView.layer.borderWidth = 1
     }
@@ -34,19 +35,13 @@ final class TVGuideViewController: UIViewController {
 }
 
 // MARK: - TableView
-
 extension TVGuideViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let channels = channels else { return 0 }
         return channels.count
     }
     
@@ -64,16 +59,14 @@ extension TVGuideViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - CollectionView
-
 extension TVGuideViewController: UICollectionViewDataSource {
  
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard let channels = channels else { return 0 }
         return channels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let channel = channels?[section], let movies = channel.movies else { return 0 }
+        guard let movies = channels[section].movies else { return 0 }
         return movies.count
     }
     
@@ -82,11 +75,10 @@ extension TVGuideViewController: UICollectionViewDataSource {
             
             return UICollectionViewCell()
         }
-        guard let channel = channels?[indexPath.section], let movies = channel.movies else {
+        guard let movies = channels[indexPath.section].movies else {
             
             return movieCell
         }
-        
         let movie = movies[indexPath.row]
         movieCell.fillMoviewDate(movie)
         
@@ -95,7 +87,6 @@ extension TVGuideViewController: UICollectionViewDataSource {
 }
 
 // MARK: - Scroll delegate
-
 extension TVGuideViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

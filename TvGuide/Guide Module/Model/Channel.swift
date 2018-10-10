@@ -11,14 +11,12 @@ import UIKit
 final class Channel: NSObject {
     
     // MARK: - Properties
-    
     var number: String?
     var name: String?
     var movies: [Movie]?
 }
 
 //MARK: - Helping Methods
-
 extension Channel {
     
     //Creates and return an array of mocked channels

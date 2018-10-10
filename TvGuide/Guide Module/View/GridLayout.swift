@@ -11,7 +11,6 @@ import UIKit
 final class GridLayout: UICollectionViewLayout {
     
     // MARK: - Properties
-    
     private var startTime: Date!
     private var endTime: Date!
     private var xPos: CGFloat = 0
@@ -25,7 +24,6 @@ final class GridLayout: UICollectionViewLayout {
     private var channels: [Channel]?
     
     // MARK: - Initializers
-    
     override init() {
         super.init()
         setup()

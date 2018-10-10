@@ -11,11 +11,9 @@ import UIKit
 final class ChannelTableViewCell: UITableViewCell {
  
     // MARK: - Properties
-
     static let identifier: String = "ChannelTableViewCell"
     
     // MARK: - Life Cycle
-
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,7 +23,6 @@ final class ChannelTableViewCell: UITableViewCell {
     }
     
     // MARK: - Helping Mehtods
-
     func fillChannelData(_ channel: Channel) {
         self.textLabel?.text = channel.name
         self.detailTextLabel?.text = channel.number
