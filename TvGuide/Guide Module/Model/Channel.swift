@@ -10,15 +10,15 @@ import UIKit
 
 final class Channel: NSObject {
     
-    var number:String?
-    var name:String?
-    var movies:[Movie]?
+    var number: String?
+    var name: String?
+    var movies: [Movie]?
 }
 
 extension Channel {
     
     class func channels()->[Channel] {
-        var channels : [Channel] = []
+        var channels: [Channel] = []
         let cal = Calendar.current
         var date = Date()
         date = cal.startOfDay(for: date)
