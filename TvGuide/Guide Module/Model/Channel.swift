@@ -12,7 +12,7 @@ final class Channel: NSObject {
     
     var number:String?
     var name:String?
-    var programs:[Movie]?
+    var movies:[Movie]?
 }
 
 extension Channel {
@@ -25,14 +25,14 @@ extension Channel {
         
         guard let startDate = cal.date(byAdding: .day, value: -1, to: date) else { return [] }
         
-        let endDate = startDate.addingTimeInterval(Time.weekTimeInterval)
+        let endDate = startDate.addingTimeInterval(Constants.weekTimeInterval)
         
         for i in 1...15 {
             let ch:Channel = Channel()
             ch.number = "\(i)"
             ch.name = "CH \(i)"
-            ch.programs = []
-            ch.programs = movies(from: date, to: endDate)
+            ch.movies = []
+            ch.movies = movies(from: date, to: endDate)
             channels.append(ch)
         }
         
@@ -48,7 +48,7 @@ extension Channel {
             moview.name = "Movie \(counter)"
             let random = Int(arc4random_uniform(4)+1)
             moview.startTime = movieStartTime
-            let movieEndTime = movieStartTime.addingTimeInterval(Double(random) * Time.houreTimeInterval)
+            let movieEndTime = movieStartTime.addingTimeInterval(Double(random) * Constants.houreTimeInterval)
             moview.endTime = movieEndTime
             movieStartTime = movieEndTime
             movies.append(moview)
