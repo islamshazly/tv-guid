@@ -35,7 +35,7 @@ final class TVGuideViewController: UIViewController {
     }
     
     func setupCollectionViewLayout() {
-        let gridLayout = GridLayout(channels)
+        let gridLayout = GridCollectionViewLayout(channels)
         collectionView.collectionViewLayout = gridLayout
     }
 

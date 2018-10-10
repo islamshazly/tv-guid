@@ -1,5 +1,5 @@
 //
-//  GridLayout.swift
+//  GridCollectionViewLayout.swift
 //  TvGuide
 //
 //  Created by Islam Elshazly on 10/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GridLayout: UICollectionViewLayout {
+final class GridCollectionViewLayout: UICollectionViewLayout {
     
     // MARK: - Properties
     private var startTime: Date!
@@ -108,6 +108,7 @@ final class GridLayout: UICollectionViewLayout {
         return CGSize(width: width, height: height)
     }
     
+    //Invalidate the old layout and redraw a new collection layout, when the device orientation is changed
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return !collectionView!.bounds.size.equalTo(newBounds.size)
     }

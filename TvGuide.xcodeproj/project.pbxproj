@@ -17,10 +17,10 @@
 		9B5450A9216E28A9003D9194 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450A8216E28A9003D9194 /* Movie.swift */; };
 		9B5450AB216E2A75003D9194 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450AA216E2A75003D9194 /* Channel.swift */; };
 		9B5450AD216E2E63003D9194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5450AC216E2E63003D9194 /* Constants.swift */; };
-		9B892A2C216E7C5100F1642D /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B892A2B216E7C5100F1642D /* GridLayout.swift */; };
 		9B892A33216E9CC300F1642D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B892A32216E9CC300F1642D /* Default-568h@2x.png */; };
 		9B892A3A216EA24300F1642D /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B892A39216EA24300F1642D /* ChannelTableViewCell.swift */; };
 		9B892A3C216EA2DD00F1642D /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B892A3B216EA2DD00F1642D /* MovieCollectionViewCell.swift */; };
+		9B892A3E216EAF7D00F1642D /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B892A3D216EAF7C00F1642D /* GridCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +57,10 @@
 		9B5450A8216E28A9003D9194 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9B5450AA216E2A75003D9194 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		9B5450AC216E2E63003D9194 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9B892A2B216E7C5100F1642D /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		9B892A32216E9CC300F1642D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9B892A39216EA24300F1642D /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		9B892A3B216EA2DD00F1642D /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B892A3D216EAF7C00F1642D /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				9B545079216E220D003D9194 /* Main.storyboard */,
-				9B892A2B216E7C5100F1642D /* GridLayout.swift */,
+				9B892A3D216EAF7C00F1642D /* GridCollectionViewLayout.swift */,
 				9B892A3B216EA2DD00F1642D /* MovieCollectionViewCell.swift */,
 				9B892A39216EA24300F1642D /* ChannelTableViewCell.swift */,
 			);
@@ -364,7 +364,7 @@
 				9B545078216E220D003D9194 /* TVGuideViewController.swift in Sources */,
 				9B5450AB216E2A75003D9194 /* Channel.swift in Sources */,
 				9B545076216E220D003D9194 /* AppDelegate.swift in Sources */,
-				9B892A2C216E7C5100F1642D /* GridLayout.swift in Sources */,
+				9B892A3E216EAF7D00F1642D /* GridCollectionViewLayout.swift in Sources */,
 				9B5450A9216E28A9003D9194 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
