@@ -14,7 +14,6 @@ import RxDataSources
 final class TVGuideViewController: UIViewController {
     
     // MARK: - Properties
-    var channels: [Channel] = Channel.channels()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
