@@ -30,7 +30,6 @@ final class TVGuideViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         viewModel = ChannelViewModel()
         setupTableViewUI()
         bindToTableView()
@@ -64,7 +63,6 @@ final class TVGuideViewController: UIViewController {
         viewModel.sectionsObservable
             .bind(to: collectionView.rx.items(dataSource: rxdataSource))
             .disposed(by: disposeBag)
-        
     }
     
     // MARK: - Helping Methods
@@ -81,7 +79,6 @@ final class TVGuideViewController: UIViewController {
                 self?.collectionView.collectionViewLayout = gridLayout
             }.disposed(by: disposeBag)
     }
-    
 }
 
 // MARK: - Scroll delegate
