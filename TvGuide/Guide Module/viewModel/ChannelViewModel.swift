@@ -29,7 +29,7 @@ final class ChannelViewModel {
         self.sectionChannels.value = initSectionOfMoview()
     }
     
-    func initSectionOfMoview() ->  [SectionOfMovie] {
+    private func initSectionOfMoview() ->  [SectionOfMovie] {
         var sections = [SectionOfMovie]()
         _ = self.observable.bind { (channels) in
             channels.forEach { channel in
