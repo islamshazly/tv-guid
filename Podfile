@@ -7,6 +7,7 @@ target 'TvGuide' do
 
     pod 'RxSwift'  
     pod 'RxCocoa'
+    pod 'RxDataSources'
 
   # Pods for TvGuide
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B2B1F6C06795802846E656F /* Pods_TvGuideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F477F743330CA8B4D72B08 /* Pods_TvGuideTests.framework */; };
 		94D7BCFAEC943E892E89D9EF /* Pods_TvGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7768AA0A9B774D6CE792DA64 /* Pods_TvGuide.framework */; };
-		9B47C2F821767672002BEA7B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47C2F721767672002BEA7B /* File.swift */; };
+		9B47C2F821767672002BEA7B /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47C2F721767672002BEA7B /* ChannelViewModel.swift */; };
 		9B545076216E220D003D9194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B545075216E220D003D9194 /* AppDelegate.swift */; };
 		9B545078216E220D003D9194 /* TVGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B545077216E220D003D9194 /* TVGuideViewController.swift */; };
 		9B54507B216E220D003D9194 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B545079216E220D003D9194 /* Main.storyboard */; };
@@ -52,7 +52,7 @@
 		443E887CF4F50CF0A65E5375 /* Pods-TvGuideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvGuideUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TvGuideUITests/Pods-TvGuideUITests.release.xcconfig"; sourceTree = "<group>"; };
 		469DE5732BAE081A976DE4A5 /* Pods-TvGuideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvGuideTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TvGuideTests/Pods-TvGuideTests.release.xcconfig"; sourceTree = "<group>"; };
 		7768AA0A9B774D6CE792DA64 /* Pods_TvGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TvGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B47C2F721767672002BEA7B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		9B47C2F721767672002BEA7B /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
 		9B545072216E220D003D9194 /* TvGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B545075216E220D003D9194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B545077216E220D003D9194 /* TVGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGuideViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		9B47C2F621767660002BEA7B /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9B47C2F721767672002BEA7B /* File.swift */,
+				9B47C2F721767672002BEA7B /* ChannelViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -177,8 +177,8 @@
 		9B5450A3216E2664003D9194 /* Guide Module */ = {
 			isa = PBXGroup;
 			children = (
-				9B47C2F621767660002BEA7B /* viewModel */,
 				9B5450A5216E26CD003D9194 /* Model */,
+				9B47C2F621767660002BEA7B /* viewModel */,
 				9B5450A6216E26D9003D9194 /* View */,
 				9B5450A7216E26DE003D9194 /* Controller */,
 			);
@@ -424,12 +424,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TvGuide/Pods-TvGuide-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,7 +509,7 @@
 				9B5450AB216E2A75003D9194 /* Channel.swift in Sources */,
 				9B545076216E220D003D9194 /* AppDelegate.swift in Sources */,
 				9B892A3E216EAF7D00F1642D /* GridCollectionViewLayout.swift in Sources */,
-				9B47C2F821767672002BEA7B /* File.swift in Sources */,
+				9B47C2F821767672002BEA7B /* ChannelViewModel.swift in Sources */,
 				9B5450A9216E28A9003D9194 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

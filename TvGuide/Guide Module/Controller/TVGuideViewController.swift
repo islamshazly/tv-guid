@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 final class TVGuideViewController: UIViewController {
     
@@ -17,9 +18,9 @@ final class TVGuideViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var channelsViewModels: ChannelViewModel!
+    var viewModel: ChannelViewModel!
     private let disposeBag = DisposeBag()
-
+    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -31,15 +32,16 @@ final class TVGuideViewController: UIViewController {
         super.viewWillAppear(animated)
         
         
-        setupCollectionViewLayout()
+        viewModel = ChannelViewModel()
         setupTableViewUI()
-        setUpViewModel()
+        bindToTableView()
+        bindToCollectionView()
+        setupCollectionViewLayout()
     }
     
-    func setUpViewModel() {
-        channelsViewModels = ChannelViewModel()
+    func bindToTableView() {
         tableView.dataSource = nil
-        channelsViewModels.observable
+        viewModel.observable
             .bind(to: tableView.rx.items(cellIdentifier: ChannelTableViewCell.identifier,
                                          cellType: ChannelTableViewCell.self)) {
                                             row, channel, cell in
@@ -47,6 +49,23 @@ final class TVGuideViewController: UIViewController {
                                             
             }
             .disposed(by: disposeBag)
+    }
+    
+    func bindToCollectionView() {
+        collectionView.dataSource = nil
+        let rxdataSource = RxCollectionViewSectionedReloadDataSource<SectionOfMovie>(
+            configureCell: { dataSource, collectionView, indexPath, movie in
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifer, for: indexPath) as? MovieCollectionViewCell else {
+                    
+                    return UICollectionViewCell()
+                }
+                cell.fillMoviewDate(movie)
+                return cell
+        })
+        viewModel.sectionsObservable
+            .bind(to: collectionView.rx.items(dataSource: rxdataSource))
+            .disposed(by: disposeBag)
+        
     }
     
     // MARK: - Helping Methods
@@ -57,36 +76,13 @@ final class TVGuideViewController: UIViewController {
     }
     
     func setupCollectionViewLayout() {
-        let gridLayout = GridCollectionViewLayout(channels)
-        collectionView.collectionViewLayout = gridLayout
-    }
-
-}
-
-// MARK: - CollectionView
-extension TVGuideViewController: UICollectionViewDataSource {
- 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return channels.count
+        viewModel.observable
+            .bind { [weak self] (channels) in
+                let gridLayout = GridCollectionViewLayout(channels)
+                self?.collectionView.collectionViewLayout = gridLayout
+            }.disposed(by: disposeBag)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let movies = channels[section].movies else { return 0 }
-        return movies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifer, for: indexPath) as? MovieCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        guard let movies = channels[indexPath.section].movies else {
-            return movieCell
-        }
-        let movie = movies[indexPath.row]
-        movieCell.fillMoviewDate(movie)
-        
-        return movieCell
-    }
 }
 
 // MARK: - Scroll delegate
