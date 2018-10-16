@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 final class TVGuideViewController: UIViewController {
     
@@ -14,6 +16,10 @@ final class TVGuideViewController: UIViewController {
     var channels: [Channel] = Channel.channels()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var channelsViewModels: ChannelViewModel!
+    private let disposeBag = DisposeBag()
+
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -24,8 +30,19 @@ final class TVGuideViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        channelsViewModels = ChannelViewModel()
+        tableView.dataSource = nil
+        channelsViewModels.observable
+            .bind(to: tableView.rx.items(cellIdentifier: ChannelTableViewCell.identifier,
+                                         cellType: ChannelTableViewCell.self)) {  row, channel, cell in
+                                            cell.fillChannelData(channel)
+            }
+        .disposed(by: disposeBag)
+        
         setupCollectionViewLayout()
         setupTableViewUI()
+        
+        
     }
     
     // MARK: - Helping Methods
@@ -41,27 +58,27 @@ final class TVGuideViewController: UIViewController {
 
 }
 
-// MARK: - TableView
-extension TVGuideViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let channelCell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.identifier, for: indexPath) as? ChannelTableViewCell else {
-            return UITableViewCell()
-        }
-        let channel = channels[indexPath.row]
-        channelCell.fillChannelData(channel)
-        
-        return channelCell
-    }
-}
+//// MARK: - TableView
+//extension TVGuideViewController: UITableViewDelegate, UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 70
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return channels.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let channelCell = tableView.dequeueReusableCell(withIdentifier: ChannelTableViewCell.identifier, for: indexPath) as? ChannelTableViewCell else {
+//            return UITableViewCell()
+//        }
+//        let channel = channels[indexPath.row]
+//        channelCell.fillChannelData(channel)
+//
+//        return channelCell
+//    }
+//}
 
 // MARK: - CollectionView
 extension TVGuideViewController: UICollectionViewDataSource {
